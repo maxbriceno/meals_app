@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/categories_screen.dart';
 import 'package:meals_app/const/themes/theme.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: kTheme,
-      home: const Text('test'),
+      home: const CategoriesScreen(),
     );
   }
 }
