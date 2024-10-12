@@ -27,20 +27,24 @@ class MealsScreen extends StatelessWidget {
         ],
       ),
     );
+    if (meals.isNotEmpty) {
+      content = ListView.builder(
+        itemCount: meals.length,
+        itemBuilder: (context, index) => Text(
+          meals[index].title,
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+              color: Theme.of(context).colorScheme.onPrimaryContainer),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: content,
-            ),
-          ],
-        ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: content,
       ),
     );
   }

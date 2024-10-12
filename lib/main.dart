@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/data/dummy_data.dart';
 import 'package:meals_app/screens/categories_screen.dart';
 import 'package:meals_app/const/themes/theme.dart';
 import 'package:meals_app/screens/meals_screen.dart';
@@ -16,8 +17,8 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: kTheme,
       home: const MealsScreen(
-        title: 'No data test',
-        meals: [],
+        title: 'Some category...',
+        meals: dummyMeals,
       ),
     );
   }
