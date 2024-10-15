@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
-import 'package:meals_app/screens/meal_detail_screen.dart';
+import 'package:meals_app/screens/meal_details_screen.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:meals_app/widgets/meal_item_trait.dart';
 
@@ -31,7 +31,7 @@ class MealItem extends StatelessWidget {
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => MealDetailScreen(meal: meal),
+              builder: (context) => MealDetailsScreen(meal: meal),
             ),
           );
         },
