@@ -11,11 +11,16 @@ class TabsScreen extends StatefulWidget {
 
 class _TabsScreenState extends State<TabsScreen> {
   int selectedPageIndex = 0;
+  final List<Meal> favouriteMeals = 
 
   void _selectPage(int index) {
     setState(() {
       selectedPageIndex = index;
     });
+  }
+
+  void _onToggleFavouriteStatus() {
+
   }
 
   @override
@@ -24,7 +29,8 @@ class _TabsScreenState extends State<TabsScreen> {
     String activePageTitle = 'Categories';
 
     if (selectedPageIndex == 1) {
-      activePage = const MealsScreen(
+      activePage = MealsScreen(
+        onToggleFavouriteStatus: _onToggleFavouriteStatus,
         title: null,
         meals: [],
       );
