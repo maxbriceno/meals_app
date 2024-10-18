@@ -20,11 +20,35 @@ class _TabsScreenState extends State<TabsScreen> {
     });
   }
 
+  void _showSnackMessage(String message, Color backgroundColor) {
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: backgroundColor,
+        content: Text(message),
+      ),
+    );
+  }
+
   void _onToggleFavouriteStatus(Meal meal) {
-    setState(() {
-      final isAFavourite = favouriteMeals.contains(meal);
-      isAFavourite ? favouriteMeals.remove(meal) : favouriteMeals.add(meal);
-    });
+    final isAFavourite = favouriteMeals.contains(meal);
+    if (isAFavourite) {
+      setState(() {
+        favouriteMeals.remove(meal);
+        _showSnackMessage(
+          'Favourite removed!',
+          Theme.of(context).colorScheme.error,
+        );
+      });
+    } else {
+      setState(() {
+        favouriteMeals.add(meal);
+        _showSnackMessage(
+          'Favourite added!',
+          Theme.of(context).colorScheme.primary,
+        );
+      });
+    }
   }
 
   @override
