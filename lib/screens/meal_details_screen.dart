@@ -3,9 +3,9 @@ import 'package:meals_app/models/meal.dart';
 
 class MealDetailsScreen extends StatelessWidget {
   const MealDetailsScreen(
-      {super.key, required this.meal, required this.toogleFavouriteStatus});
+      {super.key, required this.meal, required this.onToogleFavouriteStatus});
   final Meal meal;
-  final void Function() toogleFavouriteStatus;
+  final void Function(Meal meal) onToogleFavouriteStatus;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class MealDetailsScreen extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.star_border),
-            onPressed: toogleFavouriteStatus,
+            onPressed: () => onToogleFavouriteStatus(meal),
           ),
         ],
       ),
